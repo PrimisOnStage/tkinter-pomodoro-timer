@@ -1,5 +1,4 @@
 from tkinter import *
-import time
 import math
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
@@ -11,13 +10,13 @@ WORK_MIN = 25
 SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
-timer = None
+timer = ""
 
 # ---------------------------- TIMER RESET ------------------------------- #
 
 def reset():
     global reps
-    global marks
+
 
     pomo_label.config(text="TIMER", fg=GREEN)
     reps = 0
@@ -36,13 +35,13 @@ def start_timer():
     reps += 1
     if reps%8 == 0:
         pomo_label.config(text="BREAK", fg=RED)
-        count_down(30)
+        count_down(long_break_mins)
     elif reps % 2 == 0:
         pomo_label.config(text="BREAK", fg=PINK)
-        count_down(15)
+        count_down(short_break_mins)
     else:
         pomo_label.config(text="WORK", fg=GREEN)
-        count_down(10)
+        count_down(work_mins)
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
